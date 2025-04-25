@@ -1,59 +1,92 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 
-const QuenMatkhau = () => {
-    const router = useRouter();
+export default function QuenMatkhau() {
     const [email, setEmail] = useState('');
+    const router = useRouter();
 
     const handleResetPassword = () => {
-        if (email) {
-            Alert.alert('Thành công', `Hướng dẫn đặt lại mật khẩu đã được gửi đến ${email}.`);
-            router.push('/DangNhap');
-        } else {
-            Alert.alert('Lỗi', 'Vui lòng nhập email của bạn.');
-        }
+        console.log('Reset password for:', email);
+        //  Add your password reset logic here
+        router.push('/Dangnhap'); // Navigate back to login after password reset
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Đặt lại mật khẩu của bạn</Text>
+            <Text style={styles.title}>Reset your password</Text>
+
             <TextInput
+                placeholder="Enter your email"
                 style={styles.input}
-                placeholder="Email"
                 value={email}
                 onChangeText={setEmail}
             />
-            <Button title="Đặt lại mật khẩu" onPress={handleResetPassword} />
-            <Button
-                title="Quay lại đăng nhập"
-                onPress={() => router.push('/DangNhap')}
-                color="#333333"
-            />
+            {email === '' && <Text style={styles.error}>Email is a required field</Text>}
+
+            <TouchableOpacity style={styles.button} onPress={handleResetPassword}>
+                <Text style={styles.buttonText}>Send Reset Email</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => { router.push('/Dangnhap') }} >
+                <Text style={styles.link}>Go back to Login</Text>
+            </TouchableOpacity>
+
+
         </View>
     );
-};
+}
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 20,
-        paddingTop: 50,
+        paddingHorizontal: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
     },
     title: {
-        fontSize: 24,
+        fontSize: 28,
         fontWeight: 'bold',
-        marginBottom: 20,
-        textAlign: 'center',
+        marginBottom: 30,
+        color: '#222',
     },
     input: {
+        width: '100%',
         borderWidth: 1,
         borderColor: '#ccc',
-        padding: 10,
+        padding: 12,
+        marginBottom: 5,
         borderRadius: 8,
-        marginTop: 10,
+        backgroundColor: '#f8f8f8',
+    },
+    error: {
+        width: '100%',
+        color: 'red',
         marginBottom: 10,
+        fontSize: 12,
+    },
+    button: {
+        backgroundColor: 'orange',
+        padding: 15,
+        borderRadius: 8,
+        width: '100%',
+        alignItems: 'center',
+        marginTop: 20,
+    },
+    buttonText: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
+    link: {
+        marginTop: 20,
+        color: 'blue',
+        fontSize: 14,
+    },
+    footer: {
+        marginTop: 30,
+        fontSize: 10,
+        color: '#888',
+        textAlign: 'center',
     },
 });
-
-export default QuenMatkhau;

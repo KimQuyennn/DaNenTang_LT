@@ -22,7 +22,7 @@ export default function Dangnhap() {
     return (
         <View style={styles.container}>
             <Image
-                source={{ uri: 'https://cdn-icons-png.flaticon.com/512/833/833472.png' }}
+                source={{ uri: 'https://demoda.vn/wp-content/uploads/2022/01/hinh-ngon-lua-ve.jpg' }}
                 style={styles.logo}
             />
             <Text style={styles.title}>Welcome back!</Text>
@@ -56,9 +56,7 @@ export default function Dangnhap() {
                 <Text style={styles.link}>Forgot Password</Text>
             </TouchableOpacity>
 
-            <Text style={styles.footer}>
-                Expo Firebase Starter App (based on managed workflow)
-            </Text>
+
         </View>
     );
 }

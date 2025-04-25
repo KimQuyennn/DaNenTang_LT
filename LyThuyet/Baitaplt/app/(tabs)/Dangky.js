@@ -14,10 +14,7 @@ export default function DangKy() {
 
     return (
         <View style={styles.container}>
-            <Image
-                source={{ uri: 'https://cdn-icons-png.flaticon.com/512/833/833472.png' }}
-                style={styles.logo}
-            />
+
             <Text style={styles.title}>Create a new account!</Text>
 
             <TextInput
@@ -45,9 +42,7 @@ export default function DangKy() {
                 <Text style={styles.link}>Already have an account?</Text>
             </TouchableOpacity>
 
-            <Text style={styles.footer}>
-                Expo Firebase Starter App (based on managed workflow)
-            </Text>
+
         </View>
     );
 }
