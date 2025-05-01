@@ -1,7 +1,7 @@
 import React from 'react';
 import { } from 'react-native';
 import { Stack } from 'expo-router';
-import Dangnhap from './Dangnhap';
+import Dangnhap from './HomeScreen';
 
 
 const index = () => {

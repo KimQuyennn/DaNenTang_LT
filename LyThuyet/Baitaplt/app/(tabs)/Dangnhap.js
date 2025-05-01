@@ -22,7 +22,7 @@ export default function Dangnhap() {
     return (
         <View style={styles.container}>
             <Image
-                source={{ uri: 'https://demoda.vn/wp-content/uploads/2022/01/hinh-ngon-lua-ve.jpg' }}
+                source={{ uri: 'https://thumbs.dreamstime.com/b/flame-fire-pictogram-symbol-fire-spicy-infammable-vector-flame-fire-pictogram-symbol-fire-spicy-infammable-229646995.jpg' }}
                 style={styles.logo}
             />
             <Text style={styles.title}>Welcome back!</Text>
